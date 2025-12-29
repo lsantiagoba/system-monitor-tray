@@ -1,0 +1,5 @@
+# Package files
+*.zip
+
+# Temporary packaging directory
+pack/

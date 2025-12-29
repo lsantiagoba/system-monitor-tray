@@ -2,7 +2,7 @@
 
 GNOME Shell extension that displays real-time system resource usage in the top panel.
 
-![GNOME Version](https://img.shields.io/badge/GNOME-45%20|%2046-blue)
+![GNOME Version](https://img.shields.io/badge/GNOME-45--49-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/paypalme/leandrosb3)
@@ -18,7 +18,7 @@ GNOME Shell extension that displays real-time system resource usage in the top p
 
 Access preferences through GNOME Extensions app or run:
 ```bash
-gnome-extensions prefs system-monitor-tray@lsbcodes
+gnome-extensions prefs system-monitor-tray@lsb.codes
 ```
 
 Available settings:
@@ -35,10 +35,34 @@ Visit [GNOME Extensions](https://extensions.gnome.org/) and search for "System M
 
 ### Manual Installation
 
+#### Quick Install (using install script)
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/lsantiagoba/system-monitor-tray.git
+   cd system-monitor-tray
+   ```
+
+2. Build the extension:
+   ```bash
+   ./build.sh
+   ```
+
+3. Install locally:
+   ```bash
+   ./install.sh
+   ```
+
+4. Restart GNOME Shell:
+   - On X11: Press `Alt+F2`, type `r` and press Enter
+   - On Wayland: Log out and log back in
+
+#### Manual Installation
+
 1. Copy the extension folder to your GNOME extensions directory:
    ```bash
-   mkdir -p ~/.local/share/gnome-shell/extensions/system-monitor-tray@lsbcodes
-   cp -r * ~/.local/share/gnome-shell/extensions/system-monitor-tray@lsbcodes/
+   mkdir -p ~/.local/share/gnome-shell/extensions/system-monitor-tray@lsb.codes
+   cp -r * ~/.local/share/gnome-shell/extensions/system-monitor-tray@lsb.codes/
    ```
 
 2. Restart GNOME Shell:
@@ -47,7 +71,7 @@ Visit [GNOME Extensions](https://extensions.gnome.org/) and search for "System M
 
 3. Enable the extension:
    ```bash
-   gnome-extensions enable system-monitor-tray@lsbcodes
+   gnome-extensions enable system-monitor-tray@lsb.codes
    ```
 
    Or use the Extensions application from the applications menu.
@@ -55,8 +79,8 @@ Visit [GNOME Extensions](https://extensions.gnome.org/) and search for "System M
 ## Uninstallation
 
 ```bash
-gnome-extensions disable system-monitor-tray@lsbcodes
-rm -rf ~/.local/share/gnome-shell/extensions/system-monitor-tray@lsbcodes
+gnome-extensions disable system-monitor-tray@lsb.codes
+rm -rf ~/.local/share/gnome-shell/extensions/system-monitor-tray@lsb.codes
 ```
 
 ## Technical Details
@@ -64,10 +88,32 @@ rm -rf ~/.local/share/gnome-shell/extensions/system-monitor-tray@lsbcodes
 - **Update Frequency**: Indicators refresh automatically every 2 seconds
 - **Data Source**: Reads from `/proc/stat`, `/proc/meminfo`, and `/proc/loadavg`
 - **Performance**: Minimal CPU overhead, designed for efficiency
+- **Architecture**: Modular design with separate components for better maintainability
+
+### Project Structure
+
+The extension uses a modular architecture for better code organization:
+
+- **extension.js** - Main coordinator that manages the extension lifecycle
+- **statReader.js** - Reads system statistics from `/proc` filesystem
+- **labelFormatter.js** - Handles text formatting based on user preferences
+- **systemMonitorIndicator.js** - Manages the panel UI and labels
+- **prefs.js** - Extension preferences dialog
+
+For detailed architecture documentation, see [ARCHITECTURE.md](ARCHITECTURE.md)
+
+### Development
+
+To work on the extension:
+
+1. Edit source files in `src/v45-46-47-48-49/`
+2. Run `./build.sh` to copy files to root
+3. Run `./install.sh` to test locally
+4. Run `./pack-extension.sh` to create distribution package
 
 ## Requirements
 
-- GNOME Shell 45 or higher
+- GNOME Shell 45, 46, 47, 48, or 49
 - Linux system with `/proc` filesystem
 
 ## Contributing
@@ -92,4 +138,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Author
 
-lsbcodes
+Leandro Santiago
