@@ -76,7 +76,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Support
 
-If you encounter any issues or have suggestions, please [open an issue](https://github.com/lsbcodes/system-monitor-tray/issues) on GitHub.
+If you encounter any issues or have suggestions, please [open an issue](https://github.com/lsantiagoba/system-monitor-tray/issues) on GitHub.
 
 ## Support This Project
 
