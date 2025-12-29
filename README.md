@@ -2,7 +2,7 @@
 
 GNOME Shell extension that displays real-time system resource usage in the top panel.
 
-![GNOME Version](https://img.shields.io/badge/GNOME-43%20|%2044%20|%2045%20|%2046-blue)
+![GNOME Version](https://img.shields.io/badge/GNOME-45%20|%2046-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/paypalme/leandrosb3)
@@ -67,7 +67,7 @@ rm -rf ~/.local/share/gnome-shell/extensions/system-monitor-tray@lsbcodes
 
 ## Requirements
 
-- GNOME Shell 43 or higher
+- GNOME Shell 45 or higher
 - Linux system with `/proc` filesystem
 
 ## Contributing
