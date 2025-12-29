@@ -6,7 +6,7 @@
     "45",
     "46"
   ],
-  "url": "https://github.com/leandrosantiago/system-monitor-tray",
+  "url": "https://github.com/lsantiagoba/system-monitor-tray",
   "version": 2,
   "settings-schema": "org.gnome.shell.extensions.system-monitor-tray",
   "gettext-domain": "system-monitor-tray"
