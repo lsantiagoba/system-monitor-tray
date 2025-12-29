@@ -1,0 +1,73 @@
+import Adw from 'gi://Adw';
+import Gtk from 'gi://Gtk';
+import Gio from 'gi://Gio';
+import {ExtensionPreferences} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
+
+export default class SystemMonitorPreferences extends ExtensionPreferences {
+    fillPreferencesWindow(window) {
+        const settings = this.getSettings();
+        
+        // Create a preferences page
+        const page = new Adw.PreferencesPage();
+        window.add(page);
+        
+        // Create a preferences group for appearance
+        const group = new Adw.PreferencesGroup({
+            title: 'Appearance Settings',
+            description: 'Configure how the system monitor appears'
+        });
+        page.add(group);
+        
+        // Position setting
+        const positionRow = new Adw.ComboRow({
+            title: 'Panel Position',
+            subtitle: 'Position of the indicator in the top panel',
+            model: new Gtk.StringList({
+                strings: ['Left', 'Center', 'Right']
+            })
+        });
+        
+        // Set current position
+        const currentPosition = settings.get_string('position');
+        positionRow.selected = ['left', 'center', 'right'].indexOf(currentPosition);
+        
+        positionRow.connect('notify::selected', (widget) => {
+            const positions = ['left', 'center', 'right'];
+            settings.set_string('position', positions[widget.selected]);
+        });
+        
+        group.add(positionRow);
+        
+        // Show icons setting
+        const iconsRow = new Adw.SwitchRow({
+            title: 'Show Icons',
+            subtitle: 'Display icons instead of text labels'
+        });
+        settings.bind('show-icons', iconsRow, 'active', Gio.SettingsBindFlags.DEFAULT);
+        group.add(iconsRow);
+        
+        // Bold labels setting
+        const boldLabelsRow = new Adw.SwitchRow({
+            title: 'Bold Labels',
+            subtitle: 'Display labels in bold text'
+        });
+        settings.bind('bold-labels', boldLabelsRow, 'active', Gio.SettingsBindFlags.DEFAULT);
+        group.add(boldLabelsRow);
+        
+        // Bold percentages setting
+        const boldPercentagesRow = new Adw.SwitchRow({
+            title: 'Bold Percentages',
+            subtitle: 'Display percentage values in bold'
+        });
+        settings.bind('bold-percentages', boldPercentagesRow, 'active', Gio.SettingsBindFlags.DEFAULT);
+        group.add(boldPercentagesRow);
+        
+        // Round values setting
+        const roundValuesRow = new Adw.SwitchRow({
+            title: 'Round Values',
+            subtitle: 'Round percentages to whole numbers (e.g., 13% instead of 12.5%)'
+        });
+        settings.bind('round-values', roundValuesRow, 'active', Gio.SettingsBindFlags.DEFAULT);
+        group.add(roundValuesRow);
+    }
+}

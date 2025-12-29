@@ -1,0 +1,14 @@
+{
+  "name": "System Monitor Tray",
+  "description": "Displays system resource usage (CPU, Memory, Swap, Load) in the top panel",
+  "uuid": "system-monitor-tray@lsantiago",
+  "shell-version": [
+    "43",
+    "44",
+    "45",
+    "46"
+  ],
+  "url": "https://github.com/lsantiago/system-monitor-tray",
+  "version": 2,
+  "settings-schema": "org.gnome.shell.extensions.system-monitor-tray"
+}
