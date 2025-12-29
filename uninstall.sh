@@ -2,7 +2,7 @@
 
 # Script de desinstalación para System Monitor Tray
 
-EXTENSION_UUID="system-monitor-tray@lsantiago"
+EXTENSION_UUID="system-monitor-tray@lsbcodes"
 EXTENSION_DIR="$HOME/.local/share/gnome-shell/extensions/$EXTENSION_UUID"
 
 # Deshabilitar la extensión

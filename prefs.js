@@ -69,5 +69,33 @@ export default class SystemMonitorPreferences extends ExtensionPreferences {
         });
         settings.bind('round-values', roundValuesRow, 'active', Gio.SettingsBindFlags.DEFAULT);
         group.add(roundValuesRow);
+        
+        // Support group
+        const supportGroup = new Adw.PreferencesGroup({
+            title: 'Support',
+            description: 'Help support future updates and development'
+        });
+        page.add(supportGroup);
+        
+        // Donation button
+        const donationRow = new Adw.ActionRow({
+            title: 'Support Future Updates',
+            subtitle: 'Consider supporting this extension via PayPal',
+            activatable: true
+        });
+        
+        const donateButton = new Gtk.Button({
+            label: 'Donate',
+            valign: Gtk.Align.CENTER,
+            css_classes: ['suggested-action']
+        });
+        
+        donateButton.connect('clicked', () => {
+            Gtk.show_uri(window, 'https://www.paypal.com/paypalme/leandrosb3', Gtk.get_current_event_time());
+        });
+        
+        donationRow.add_suffix(donateButton);
+        donationRow.activatable_widget = donateButton;
+        supportGroup.add(donationRow);
     }
 }
