@@ -1,5 +1,6 @@
 import Adw from 'gi://Adw';
 import Gtk from 'gi://Gtk';
+import Gdk from 'gi://Gdk';
 import Gio from 'gi://Gio';
 import {ExtensionPreferences} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
@@ -91,7 +92,7 @@ export default class SystemMonitorPreferences extends ExtensionPreferences {
         });
         
         donateButton.connect('clicked', () => {
-            Gtk.show_uri(window, 'https://www.paypal.com/paypalme/leandrosb3', Gtk.get_current_event_time());
+            Gtk.show_uri(window, 'https://www.paypal.com/paypalme/leandrosb3', Gdk.CURRENT_TIME);
         });
         
         donationRow.add_suffix(donateButton);
