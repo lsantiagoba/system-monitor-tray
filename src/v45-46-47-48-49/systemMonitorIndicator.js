@@ -3,16 +3,8 @@ import Clutter from 'gi://Clutter';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
 
-/**
- * SystemMonitorIndicator - UI component for the system monitor panel button
- * 
- * This class manages the panel button and its child labels for displaying
- * CPU, memory, swap, and load statistics in the GNOME Shell top bar.
- */
 export class SystemMonitorIndicator {
-    /**
-     * @param {Gio.Settings} settings - GSettings object for extension preferences
-     */
+
     constructor(settings) {
         this._settings = settings;
         this._indicator = null;
@@ -23,10 +15,6 @@ export class SystemMonitorIndicator {
         this._settingsChangedId = null;
     }
 
-    /**
-     * Create and add the indicator to the panel
-     * @param {Function} onSettingsChanged - Callback for settings changes
-     */
     create(onSettingsChanged) {
         this._indicator = new PanelMenu.Button(0.0, 'System Monitor', false);
         
@@ -78,11 +66,6 @@ export class SystemMonitorIndicator {
         }
     }
 
-    /**
-     * Create a spacer label for separating metrics
-     * @returns {St.Label} Spacer label
-     * @private
-     */
     _createSpacer() {
         return new St.Label({ 
             text: '  ', 
@@ -90,10 +73,7 @@ export class SystemMonitorIndicator {
         });
     }
 
-    /**
-     * Update CPU label
-     * @param {string} text - Formatted text to display
-     */
+
     updateCPU(text) {
         if (this._cpuLabel) {
             this._cpuLabel.set_text(text);
@@ -101,10 +81,7 @@ export class SystemMonitorIndicator {
         }
     }
 
-    /**
-     * Update memory label
-     * @param {string} text - Formatted text to display
-     */
+
     updateMemory(text) {
         if (this._memLabel) {
             this._memLabel.set_text(text);
@@ -112,10 +89,7 @@ export class SystemMonitorIndicator {
         }
     }
 
-    /**
-     * Update swap label
-     * @param {string} text - Formatted text to display
-     */
+
     updateSwap(text) {
         if (this._swapLabel) {
             this._swapLabel.set_text(text);
@@ -123,10 +97,7 @@ export class SystemMonitorIndicator {
         }
     }
 
-    /**
-     * Update load average label
-     * @param {string} text - Formatted text to display
-     */
+
     updateLoad(text) {
         if (this._loadLabel) {
             this._loadLabel.set_text(text);
@@ -134,10 +105,7 @@ export class SystemMonitorIndicator {
         }
     }
 
-    /**
-     * Check if indicator needs repositioning based on settings
-     * @returns {boolean} True if repositioning is needed
-     */
+
     needsReposition() {
         if (!this._indicator) {
             return false;
@@ -147,9 +115,7 @@ export class SystemMonitorIndicator {
         return Main.panel._rightBox.contains(this._indicator.container) !== (currentPosition === 'right');
     }
 
-    /**
-     * Destroy the indicator and clean up
-     */
+
     destroy() {
         if (this._settingsChangedId) {
             this._settings.disconnect(this._settingsChangedId);
