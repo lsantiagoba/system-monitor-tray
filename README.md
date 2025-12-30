@@ -116,6 +116,50 @@ To work on the extension:
 - GNOME Shell 45, 46, 47, 48, or 49
 - Linux system with `/proc` filesystem
 
+## Troubleshooting
+
+### Preferences Window Shows Schema Error (Fedora/Some Distributions)
+
+If you see an error like `Failed to open file "...schemas/gschemas.compiled"` when opening preferences:
+
+**Root Cause**: Some distributions may not auto-compile schemas immediately after installation.
+
+**Solutions**:
+
+1. **Reinstall using the install script** (Recommended):
+   ```bash
+   ./install.sh
+   ```
+   The install script properly compiles schemas during installation.
+
+2. **Manual schema compilation**:
+   ```bash
+   glib-compile-schemas ~/.local/share/gnome-shell/extensions/system-monitor-tray@lsb.codes/schemas/
+   ```
+
+3. **If installed from extensions.gnome.org**: Try reinstalling the extension or use the `diagnose.sh` script:
+   ```bash
+   ./diagnose.sh
+   ```
+
+**Note**: This is a known issue on certain distributions (particularly Fedora) and doesn't affect the main extension functionality.
+
+### Extension Not Showing After Installation
+
+1. Make sure the extension is enabled:
+   ```bash
+   gnome-extensions enable system-monitor-tray@lsb.codes
+   ```
+
+2. Restart GNOME Shell:
+   - X11: Press `Alt+F2`, type `r`, press Enter
+   - Wayland: Log out and log back in
+
+3. Check extension status:
+   ```bash
+   gnome-extensions info system-monitor-tray@lsb.codes
+   ```
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
