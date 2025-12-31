@@ -38,10 +38,10 @@ export default class SystemMonitorExtension extends Extension {
 
     _startMonitoring() {
         this._updateStats();
-        this._timeout = GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT, 2, () => {
+      /*  this._timeout = GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT, 2, () => {
             this._updateStats();
             return GLib.SOURCE_CONTINUE;
-        });
+        });*/
     }
 
     _stopMonitoring() {
