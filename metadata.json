@@ -1,0 +1,18 @@
+{
+  "name": "System Monitor Tray",
+  "description": "Display real-time CPU, memory, swap, and load usage in the top panel",
+  "uuid": "system-monitor-tray@lsb.codes",
+  "shell-version": [
+    "45",
+    "46",
+    "47",
+    "48",
+    "49"
+  ],
+  "version": 2,
+  "url": "https://github.com/lsantiagoba/system-monitor-tray",
+  "donations": {
+    "paypal": "leandrosb3"
+  },
+  "settings-schema": "org.gnome.shell.extensions.system-monitor-tray"
+}
