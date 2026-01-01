@@ -37,5 +37,35 @@
       <description>Round percentage values to whole numbers (e.g., 13% instead of 12.5%)</description>
     </key>
     
+    <key name="show-cpu" type="b">
+      <default>true</default>
+      <summary>Show CPU</summary>
+      <description>Show CPU usage indicator</description>
+    </key>
+    
+    <key name="show-memory" type="b">
+      <default>true</default>
+      <summary>Show Memory</summary>
+      <description>Show memory usage indicator</description>
+    </key>
+    
+    <key name="show-swap" type="b">
+      <default>true</default>
+      <summary>Show Swap</summary>
+      <description>Show swap usage indicator</description>
+    </key>
+    
+    <key name="show-load" type="b">
+      <default>true</default>
+      <summary>Show Load</summary>
+      <description>Show system load indicator</description>
+    </key>
+    
+    <key name="show-gpu" type="b">
+      <default>true</default>
+      <summary>Show GPU</summary>
+      <description>Show GPU usage indicator</description>
+    </key>
+    
   </schema>
 </schemalist>

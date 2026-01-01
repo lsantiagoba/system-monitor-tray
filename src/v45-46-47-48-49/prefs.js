@@ -62,6 +62,47 @@ export default class SystemMonitorPreferences extends ExtensionPreferences {
         settings.bind('round-values', roundValuesRow, 'active', Gio.SettingsBindFlags.DEFAULT);
         group.add(roundValuesRow);
         
+        const visibilityGroup = new Adw.PreferencesGroup({
+            title: 'Visibility Settings',
+            description: 'Show or hide individual indicators'
+        });
+        page.add(visibilityGroup);
+        
+        const showCpuRow = new Adw.SwitchRow({
+            title: 'Show CPU',
+            subtitle: 'Display CPU usage indicator'
+        });
+        settings.bind('show-cpu', showCpuRow, 'active', Gio.SettingsBindFlags.DEFAULT);
+        visibilityGroup.add(showCpuRow);
+        
+        const showMemoryRow = new Adw.SwitchRow({
+            title: 'Show Memory',
+            subtitle: 'Display memory usage indicator'
+        });
+        settings.bind('show-memory', showMemoryRow, 'active', Gio.SettingsBindFlags.DEFAULT);
+        visibilityGroup.add(showMemoryRow);
+        
+        const showSwapRow = new Adw.SwitchRow({
+            title: 'Show Swap',
+            subtitle: 'Display swap usage indicator'
+        });
+        settings.bind('show-swap', showSwapRow, 'active', Gio.SettingsBindFlags.DEFAULT);
+        visibilityGroup.add(showSwapRow);
+        
+        const showLoadRow = new Adw.SwitchRow({
+            title: 'Show Load',
+            subtitle: 'Display system load indicator'
+        });
+        settings.bind('show-load', showLoadRow, 'active', Gio.SettingsBindFlags.DEFAULT);
+        visibilityGroup.add(showLoadRow);
+        
+        const showGpuRow = new Adw.SwitchRow({
+            title: 'Show GPU',
+            subtitle: 'Display GPU usage indicator (NVIDIA, AMD, Intel)'
+        });
+        settings.bind('show-gpu', showGpuRow, 'active', Gio.SettingsBindFlags.DEFAULT);
+        visibilityGroup.add(showGpuRow);
+        
         const supportGroup = new Adw.PreferencesGroup({
             title: 'Support',
             description: 'Help support future updates and development'
