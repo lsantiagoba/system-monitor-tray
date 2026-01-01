@@ -37,11 +37,13 @@ export default class SystemMonitorExtension extends Extension {
     }
 
     _startMonitoring() {
+        this._stopMonitoring();
+        
         this._updateStats();
-      /*  this._timeout = GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT, 2, () => {
+        this._timeout = GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT, 2, () => {
             this._updateStats();
             return GLib.SOURCE_CONTINUE;
-        });*/
+        });
     }
 
     _stopMonitoring() {
@@ -66,6 +68,7 @@ export default class SystemMonitorExtension extends Extension {
         this._updateMemory();
         this._updateSwap();
         this._updateLoad();
+        this._updateGPU();
     }
 
 
@@ -122,6 +125,19 @@ export default class SystemMonitorExtension extends Extension {
                     '📊'
                 );
                 this._indicator.updateLoad(text);
+            }
+        });
+    }
+
+    _updateGPU() {
+        StatReader.getGPUUsage().then(percent => {
+            if (percent !== null) {
+                const text = this._formatter.formatText(
+                    'GPU:',
+                    `${this._formatter.formatPercentage(percent)}%`,
+                    '🎮'
+                );
+                this._indicator.updateGPU(text);
             }
         });
     }

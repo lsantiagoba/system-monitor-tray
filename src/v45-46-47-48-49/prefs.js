@@ -96,6 +96,13 @@ export default class SystemMonitorPreferences extends ExtensionPreferences {
         settings.bind('show-load', showLoadRow, 'active', Gio.SettingsBindFlags.DEFAULT);
         visibilityGroup.add(showLoadRow);
         
+        const showGpuRow = new Adw.SwitchRow({
+            title: 'Show GPU',
+            subtitle: 'Display GPU usage indicator (NVIDIA, AMD, Intel)'
+        });
+        settings.bind('show-gpu', showGpuRow, 'active', Gio.SettingsBindFlags.DEFAULT);
+        visibilityGroup.add(showGpuRow);
+        
         const supportGroup = new Adw.PreferencesGroup({
             title: 'Support',
             description: 'Help support future updates and development'

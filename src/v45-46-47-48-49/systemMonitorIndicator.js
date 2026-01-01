@@ -12,6 +12,7 @@ export class SystemMonitorIndicator {
         this._memLabel = null;
         this._swapLabel = null;
         this._loadLabel = null;
+        this._gpuLabel = null;
         this._settingsChangedId = null;
     }
 
@@ -43,6 +44,11 @@ export class SystemMonitorIndicator {
             y_align: Clutter.ActorAlign.CENTER
         });
         
+        this._gpuLabel = new St.Label({
+            text: 'GPU: --',
+            y_align: Clutter.ActorAlign.CENTER
+        });
+        
         // Store references for visibility control
         this._cpuContainer = new St.BoxLayout();
         this._cpuContainer.add_child(this._cpuLabel);
@@ -55,6 +61,9 @@ export class SystemMonitorIndicator {
         
         this._loadContainer = new St.BoxLayout();
         this._loadContainer.add_child(this._loadLabel);
+        
+        this._gpuContainer = new St.BoxLayout();
+        this._gpuContainer.add_child(this._gpuLabel);
         
         // Add labels with spacing
         box.add_child(this._cpuContainer);
@@ -70,6 +79,10 @@ export class SystemMonitorIndicator {
         box.add_child(this._swapSpacer);
         
         box.add_child(this._loadContainer);
+        this._loadSpacer = this._createSpacer();
+        box.add_child(this._loadSpacer);
+        
+        box.add_child(this._gpuContainer);
         
         // Set initial visibility
         this._updateVisibility();
@@ -100,17 +113,21 @@ export class SystemMonitorIndicator {
         const showMemory = this._settings.get_boolean('show-memory');
         const showSwap = this._settings.get_boolean('show-swap');
         const showLoad = this._settings.get_boolean('show-load');
+        const showGpu = this._settings.get_boolean('show-gpu');
         
         this._cpuContainer.visible = showCpu;
-        this._cpuSpacer.visible = showCpu && (showMemory || showSwap || showLoad);
+        this._cpuSpacer.visible = showCpu && (showMemory || showSwap || showLoad || showGpu);
         
         this._memContainer.visible = showMemory;
-        this._memSpacer.visible = showMemory && (showSwap || showLoad);
+        this._memSpacer.visible = showMemory && (showSwap || showLoad || showGpu);
         
         this._swapContainer.visible = showSwap;
-        this._swapSpacer.visible = showSwap && showLoad;
+        this._swapSpacer.visible = showSwap && (showLoad || showGpu);
         
         this._loadContainer.visible = showLoad;
+        this._loadSpacer.visible = showLoad && showGpu;
+        
+        this._gpuContainer.visible = showGpu;
     }
 
 
@@ -145,6 +162,13 @@ export class SystemMonitorIndicator {
         }
     }
 
+    updateGPU(text) {
+        if (this._gpuLabel && this._settings.get_boolean('show-gpu')) {
+            this._gpuLabel.set_text(text);
+            this._gpuLabel.clutter_text.set_markup(text);
+        }
+    }
+
     updateAllVisibility() {
         this._updateVisibility();
     }
@@ -175,5 +199,6 @@ export class SystemMonitorIndicator {
         this._memLabel = null;
         this._swapLabel = null;
         this._loadLabel = null;
+        this._gpuLabel = null;
     }
 }

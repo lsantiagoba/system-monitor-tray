@@ -113,4 +113,91 @@ export class StatReader {
         }
         return null;
     }
+
+    static async getGPUUsage() {
+        try {
+            // Try NVIDIA first
+            const nvidiaSmi = Gio.File.new_for_path('/usr/bin/nvidia-smi');
+            if (nvidiaSmi.query_exists(null)) {
+                return await this._getNvidiaGPUUsage();
+            }
+            
+            // Try AMD
+            const amdSmi = Gio.File.new_for_path('/sys/class/drm/card0/device/gpu_busy_percent');
+            if (amdSmi.query_exists(null)) {
+                return await this._getAMDGPUUsage();
+            }
+            
+            // Try Intel
+            const intelSmi = Gio.File.new_for_path('/sys/class/drm/card0/gt_cur_freq_mhz');
+            if (intelSmi.query_exists(null)) {
+                return await this._getIntelGPUUsage();
+            }
+        } catch (e) {
+            logError(e, 'Error reading GPU stats');
+        }
+        return null;
+    }
+
+    static async _getNvidiaGPUUsage() {
+        return new Promise((resolve) => {
+            try {
+                const [success, pid] = GLib.spawn_async(
+                    null,
+                    ['nvidia-smi', '--query-gpu=utilization.gpu', '--format=csv,noheader,nounits'],
+                    null,
+                    GLib.SpawnFlags.SEARCH_PATH | GLib.SpawnFlags.DO_NOT_REAP_CHILD,
+                    null
+                );
+
+                if (!success) {
+                    resolve(null);
+                    return;
+                }
+
+                GLib.spawn_close_pid(pid);
+
+                const [, stdout] = GLib.spawn_command_line_sync('nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits');
+                const output = new TextDecoder().decode(stdout).trim();
+                const usage = parseFloat(output);
+                
+                if (!isNaN(usage)) {
+                    resolve(usage);
+                } else {
+                    resolve(null);
+                }
+            } catch (e) {
+                resolve(null);
+            }
+        });
+    }
+
+    static async _getAMDGPUUsage() {
+        try {
+            const content = await this.readFile('/sys/class/drm/card0/device/gpu_busy_percent');
+            const usage = parseInt(content.trim());
+            return !isNaN(usage) ? usage : null;
+        } catch (e) {
+            return null;
+        }
+    }
+
+    static async _getIntelGPUUsage() {
+        try {
+            // Intel integrated graphics usage is more complex to read
+            // This is a simplified approach that reads frequency
+            const curFreqContent = await this.readFile('/sys/class/drm/card0/gt_cur_freq_mhz');
+            const maxFreqContent = await this.readFile('/sys/class/drm/card0/gt_max_freq_mhz');
+            
+            const curFreq = parseInt(curFreqContent.trim());
+            const maxFreq = parseInt(maxFreqContent.trim());
+            
+            if (!isNaN(curFreq) && !isNaN(maxFreq) && maxFreq > 0) {
+                return (curFreq / maxFreq) * 100;
+            }
+        } catch (e) {
+            // Files might not exist
+        }
+        return null;
+    }
 }

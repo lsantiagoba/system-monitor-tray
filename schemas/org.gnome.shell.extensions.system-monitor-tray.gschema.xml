@@ -61,5 +61,11 @@
       <description>Show system load indicator</description>
     </key>
     
+    <key name="show-gpu" type="b">
+      <default>true</default>
+      <summary>Show GPU</summary>
+      <description>Show GPU usage indicator</description>
+    </key>
+    
   </schema>
 </schemalist>
