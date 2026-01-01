@@ -179,8 +179,20 @@ export class SystemMonitorIndicator {
             return false;
         }
         
-        const currentPosition = this._settings.get_string('position');
-        return Main.panel._rightBox.contains(this._indicator.container) !== (currentPosition === 'right');
+        const desiredPosition = this._settings.get_string('position');
+        const container = this._indicator.container;
+        
+        // Check which box currently contains the indicator
+        const inLeft = Main.panel._leftBox.contains(container);
+        const inCenter = Main.panel._centerBox.contains(container);
+        const inRight = Main.panel._rightBox.contains(container);
+        
+        // Return true if the indicator is not in the desired position
+        if (desiredPosition === 'left' && !inLeft) return true;
+        if (desiredPosition === 'center' && !inCenter) return true;
+        if (desiredPosition === 'right' && !inRight) return true;
+        
+        return false;
     }
 
 
