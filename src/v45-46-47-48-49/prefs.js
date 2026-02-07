@@ -61,7 +61,14 @@ export default class SystemMonitorPreferences extends ExtensionPreferences {
         });
         settings.bind('round-values', roundValuesRow, 'active', Gio.SettingsBindFlags.DEFAULT);
         group.add(roundValuesRow);
-        
+
+        const consistentSpacingRow = new Adw.SwitchRow({
+            title: 'Fixed-width Monospace',
+            subtitle: 'Use monospace font and fixed-width number placement to prevent UI jumping when values change'
+        });
+        settings.bind('consistent-spacing', consistentSpacingRow, 'active', Gio.SettingsBindFlags.DEFAULT);
+        group.add(consistentSpacingRow);
+
         const visibilityGroup = new Adw.PreferencesGroup({
             title: 'Visibility Settings',
             description: 'Show or hide individual indicators'
