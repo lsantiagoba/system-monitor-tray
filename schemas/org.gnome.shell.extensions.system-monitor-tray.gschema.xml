@@ -43,6 +43,12 @@
       <description>Use monospace font and fixed-width number placement to prevent UI jumping when values change</description>
     </key>
 
+    <key name="custom-separator" type="s">
+      <default>'  '</default>
+      <summary>Custom separator</summary>
+      <description>Custom text to use as separator between indicators</description>
+    </key>
+
     <key name="show-cpu" type="b">
       <default>true</default>
       <summary>Show CPU</summary>

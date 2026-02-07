@@ -102,9 +102,10 @@ export class SystemMonitorIndicator {
     }
 
     _createSpacer() {
-        return new St.Label({ 
-            text: '  ', 
-            y_align: Clutter.ActorAlign.CENTER 
+        const separatorText = this._settings.get_string('custom-separator');
+        return new St.Label({
+            text: separatorText,
+            y_align: Clutter.ActorAlign.CENTER
         });
     }
 

@@ -69,6 +69,45 @@ export default class SystemMonitorPreferences extends ExtensionPreferences {
         settings.bind('consistent-spacing', consistentSpacingRow, 'active', Gio.SettingsBindFlags.DEFAULT);
         group.add(consistentSpacingRow);
 
+        const separatorRow = new Adw.ActionRow({
+            title: 'Custom Separator',
+            subtitle: 'Text to display between indicators. Extension restart required for changes to take effect.'
+        });
+
+        const separatorEntry = new Gtk.Entry({
+            text: settings.get_string('custom-separator'),
+            max_length: 10,
+            valign: Gtk.Align.CENTER,
+            hexpand: true
+        });
+
+        separatorEntry.connect('changed', (widget) => {
+            const newValue = widget.get_text();
+            if (newValue.length <= 10) {
+                settings.set_string('custom-separator', newValue);
+            }
+        });
+
+        const resetButton = new Gtk.Button({
+            icon_name: 'edit-undo-symbolic',
+            valign: Gtk.Align.CENTER,
+            tooltip_text: 'Reset to default (two spaces)'
+        });
+        resetButton.connect('clicked', () => {
+            settings.reset('custom-separator');
+            separatorEntry.set_text(settings.get_string('custom-separator'));
+        });
+
+        const entryBox = new Gtk.Box({
+            orientation: Gtk.Orientation.HORIZONTAL,
+            spacing: 6,
+            valign: Gtk.Align.CENTER
+        });
+        entryBox.append(separatorEntry);
+        entryBox.append(resetButton);
+        separatorRow.add_suffix(entryBox);
+        group.add(separatorRow);
+
         const visibilityGroup = new Adw.PreferencesGroup({
             title: 'Visibility Settings',
             description: 'Show or hide individual indicators'
