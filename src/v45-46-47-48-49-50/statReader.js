@@ -1,4 +1,3 @@
-import GLib from 'gi://GLib';
 import Gio from 'gi://Gio';
 
 export class StatReader {
@@ -140,32 +139,23 @@ export class StatReader {
     }
 
     static async _getNvidiaGPUUsage() {
-        return new Promise((resolve) => {
+        return new Promise(resolve => {
             try {
-                const [success, pid] = GLib.spawn_async(
-                    null,
+                const subprocess = Gio.Subprocess.new(
                     ['nvidia-smi', '--query-gpu=utilization.gpu', '--format=csv,noheader,nounits'],
-                    null,
-                    GLib.SpawnFlags.SEARCH_PATH | GLib.SpawnFlags.DO_NOT_REAP_CHILD,
-                    null
+                    Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_SILENCE
                 );
 
-                if (!success) {
-                    resolve(null);
-                    return;
-                }
+                subprocess.communicate_utf8_async(null, null, (source, result) => {
+                    try {
+                        const [, stdout] = source.communicate_utf8_finish(result);
+                        const usage = parseFloat(stdout.trim());
 
-                GLib.spawn_close_pid(pid);
-
-                const [, stdout] = GLib.spawn_command_line_sync('nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits');
-                const output = new TextDecoder().decode(stdout).trim();
-                const usage = parseFloat(output);
-                
-                if (!isNaN(usage)) {
-                    resolve(usage);
-                } else {
-                    resolve(null);
-                }
+                        resolve(!isNaN(usage) ? usage : null);
+                    } catch (e) {
+                        resolve(null);
+                    }
+                });
             } catch (e) {
                 resolve(null);
             }
