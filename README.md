@@ -2,7 +2,7 @@
 
 GNOME Shell extension that displays real-time system resource usage in the top panel.
 
-![GNOME Version](https://img.shields.io/badge/GNOME-45--49-blue)
+![GNOME Version](https://img.shields.io/badge/GNOME-45--50-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/paypalme/leandrosb3)
@@ -106,14 +106,14 @@ For detailed architecture documentation, see [ARCHITECTURE.md](ARCHITECTURE.md)
 
 To work on the extension:
 
-1. Edit source files in `src/v45-46-47-48-49/`
+1. Edit source files in `src/v45-46-47-48-49-50/`
 2. Run `./build.sh` to copy files to root
 3. Run `./install.sh` to test locally
 4. Run `./pack-extension.sh` to create distribution package
 
 ## Requirements
 
-- GNOME Shell 45, 46, 47, 48, or 49
+- GNOME Shell 45, 46, 47, 48, 49, or 50
 - Linux system with `/proc` filesystem
 
 ## Troubleshooting
