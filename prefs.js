@@ -62,6 +62,64 @@ export default class SystemMonitorPreferences extends ExtensionPreferences {
         });
         settings.bind('round-values', roundValuesRow, 'active', Gio.SettingsBindFlags.DEFAULT);
         group.add(roundValuesRow);
+
+        const consistentSpacingRow = new Adw.SwitchRow({
+            title: _('Fixed-width Monospace'),
+            subtitle: _('Use a monospace font and fixed-width number placement to prevent labels from shifting when values change')
+        });
+
+        const fixedWidthSpin = new Gtk.SpinButton({
+            adjustment: new Gtk.Adjustment({
+                lower: 0,
+                upper: 20,
+                step_increment: 1,
+                page_increment: 5
+            }),
+            numeric: true,
+            valign: Gtk.Align.CENTER,
+            tooltip_text: _('Number width (0 selects the automatic width)')
+        });
+        settings.bind('fixed-width', fixedWidthSpin, 'value', Gio.SettingsBindFlags.DEFAULT);
+        settings.bind('consistent-spacing', fixedWidthSpin, 'sensitive', Gio.SettingsBindFlags.GET);
+        consistentSpacingRow.add_suffix(fixedWidthSpin);
+
+        settings.bind('consistent-spacing', consistentSpacingRow, 'active', Gio.SettingsBindFlags.DEFAULT);
+        group.add(consistentSpacingRow);
+
+        const separatorRow = new Adw.ActionRow({
+            title: _('Custom Separator'),
+            subtitle: _('Text to display between indicators')
+        });
+
+        const separatorEntry = new Gtk.Entry({
+            text: settings.get_string('custom-separator'),
+            max_length: 10,
+            valign: Gtk.Align.CENTER,
+            hexpand: true
+        });
+        separatorEntry.connect('changed', widget => {
+            settings.set_string('custom-separator', widget.get_text());
+        });
+
+        const resetButton = new Gtk.Button({
+            icon_name: 'edit-undo-symbolic',
+            valign: Gtk.Align.CENTER,
+            tooltip_text: _('Reset to default (two spaces)')
+        });
+        resetButton.connect('clicked', () => {
+            settings.reset('custom-separator');
+            separatorEntry.set_text(settings.get_string('custom-separator'));
+        });
+
+        const entryBox = new Gtk.Box({
+            orientation: Gtk.Orientation.HORIZONTAL,
+            spacing: 6,
+            valign: Gtk.Align.CENTER
+        });
+        entryBox.append(separatorEntry);
+        entryBox.append(resetButton);
+        separatorRow.add_suffix(entryBox);
+        group.add(separatorRow);
         
         const visibilityGroup = new Adw.PreferencesGroup({
             title: _('Visibility Settings'),

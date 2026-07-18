@@ -122,7 +122,7 @@ export class SystemMonitorIndicator {
 
     _createSpacer() {
         return new St.Label({ 
-            text: '  ', 
+            text: this._settings.get_string('custom-separator'),
             y_align: Clutter.ActorAlign.CENTER 
         });
     }
@@ -164,44 +164,54 @@ export class SystemMonitorIndicator {
         this._loadSpacer.visible = showLoad && showGpu;
         
         this._gpuContainer.visible = showGpu;
+
+        const separator = this._settings.get_string('custom-separator');
+        for (const spacer of [this._cpuSpacer, this._memSpacer,
+            this._swapSpacer, this._loadSpacer]) {
+            spacer.set_text(separator);
+        }
+    }
+
+    _updateLabelWithText(label, text) {
+        const consistentSpacing = this._settings.get_boolean('consistent-spacing');
+        const markup = consistentSpacing
+            ? `<span font_family="monospace">${text}</span>`
+            : text;
+
+        label.clutter_text.set_markup(markup);
     }
 
 
     updateCPU(text) {
         if (this._cpuLabel && this._settings.get_boolean('show-cpu')) {
-            this._cpuLabel.set_text(text);
-            this._cpuLabel.clutter_text.set_markup(text);
+            this._updateLabelWithText(this._cpuLabel, text);
         }
     }
 
 
     updateMemory(text) {
         if (this._memLabel && this._settings.get_boolean('show-memory')) {
-            this._memLabel.set_text(text);
-            this._memLabel.clutter_text.set_markup(text);
+            this._updateLabelWithText(this._memLabel, text);
         }
     }
 
 
     updateSwap(text) {
         if (this._swapLabel && this._settings.get_boolean('show-swap')) {
-            this._swapLabel.set_text(text);
-            this._swapLabel.clutter_text.set_markup(text);
+            this._updateLabelWithText(this._swapLabel, text);
         }
     }
 
 
     updateLoad(text) {
         if (this._loadLabel && this._settings.get_boolean('show-load')) {
-            this._loadLabel.set_text(text);
-            this._loadLabel.clutter_text.set_markup(text);
+            this._updateLabelWithText(this._loadLabel, text);
         }
     }
 
     updateGPU(text) {
         if (this._gpuLabel && this._settings.get_boolean('show-gpu')) {
-            this._gpuLabel.set_text(text);
-            this._gpuLabel.clutter_text.set_markup(text);
+            this._updateLabelWithText(this._gpuLabel, text);
         }
     }
 

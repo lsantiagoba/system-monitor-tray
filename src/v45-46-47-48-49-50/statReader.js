@@ -1,6 +1,10 @@
 import Gio from 'gi://Gio';
+import GLib from 'gi://GLib';
 
 export class StatReader {
+
+    static _amdGPUPath = null;
+    static _intelGPUPath = null;
 
     static async readFile(path) {
         return new Promise((resolve, reject) => {
@@ -121,16 +125,17 @@ export class StatReader {
                 return await this._getNvidiaGPUUsage();
             }
             
-            // Try AMD
-            const amdSmi = Gio.File.new_for_path('/sys/class/drm/card0/device/gpu_busy_percent');
-            if (amdSmi.query_exists(null)) {
-                return await this._getAMDGPUUsage();
+            // Try AMD. The DRM card and hwmon indexes are not stable, so discover
+            // the device instead of assuming card0 or a particular hwmon number.
+            const amdUsage = await this._getAMDGPUUsage();
+            if (amdUsage !== null) {
+                return amdUsage;
             }
             
             // Try Intel
-            const intelSmi = Gio.File.new_for_path('/sys/class/drm/card0/gt_cur_freq_mhz');
-            if (intelSmi.query_exists(null)) {
-                return await this._getIntelGPUUsage();
+            const intelUsage = await this._getIntelGPUUsage();
+            if (intelUsage !== null) {
+                return intelUsage;
             }
         } catch (e) {
             logError(e, 'Error reading GPU stats');
@@ -163,31 +168,99 @@ export class StatReader {
     }
 
     static async _getAMDGPUUsage() {
+        const locations = [
+            ['/sys/class/drm', /^card\d+$/, 'device/gpu_busy_percent'],
+            ['/sys/class/hwmon', /^hwmon\d+$/, 'device/gpu_busy_percent'],
+        ];
+
+        const result = await this._readDiscoveredStat(this._amdGPUPath, locations);
+        if (result === null) {
+            this._amdGPUPath = null;
+            return null;
+        }
+
+        this._amdGPUPath = result.path;
+        const usage = parseInt(result.content.trim());
+        return !isNaN(usage) ? usage : null;
+    }
+
+    static async _getIntelGPUUsage() {
+        const locations = [
+            ['/sys/class/drm', /^card\d+$/, 'gt_cur_freq_mhz'],
+        ];
+        const result = await this._readDiscoveredStat(this._intelGPUPath, locations);
+        if (result === null) {
+            this._intelGPUPath = null;
+            return null;
+        }
+
+        this._intelGPUPath = result.path;
+
         try {
-            const content = await this.readFile('/sys/class/drm/card0/device/gpu_busy_percent');
-            const usage = parseInt(content.trim());
-            return !isNaN(usage) ? usage : null;
+            // Intel integrated graphics usage is more complex to read. This is a
+            // simplified approach that estimates it from the current frequency.
+            const maxFreqPath = result.path.replace('gt_cur_freq_mhz', 'gt_max_freq_mhz');
+            const maxFreqContent = await this.readFile(maxFreqPath);
+            const curFreq = parseInt(result.content.trim());
+            const maxFreq = parseInt(maxFreqContent.trim());
+
+            return !isNaN(curFreq) && !isNaN(maxFreq) && maxFreq > 0
+                ? (curFreq / maxFreq) * 100
+                : null;
         } catch (e) {
             return null;
         }
     }
 
-    static async _getIntelGPUUsage() {
-        try {
-            // Intel integrated graphics usage is more complex to read
-            // This is a simplified approach that reads frequency
-            const curFreqContent = await this.readFile('/sys/class/drm/card0/gt_cur_freq_mhz');
-            const maxFreqContent = await this.readFile('/sys/class/drm/card0/gt_max_freq_mhz');
-            
-            const curFreq = parseInt(curFreqContent.trim());
-            const maxFreq = parseInt(maxFreqContent.trim());
-            
-            if (!isNaN(curFreq) && !isNaN(maxFreq) && maxFreq > 0) {
-                return (curFreq / maxFreq) * 100;
+    static async _readDiscoveredStat(cachedPath, locations) {
+        if (cachedPath !== null) {
+            try {
+                return {path: cachedPath, content: await this.readFile(cachedPath)};
+            } catch (e) {
+                // The device index may have changed; discover it again.
             }
-        } catch (e) {
-            // Files might not exist
         }
+
+        for (const [directory, namePattern, relativePath] of locations) {
+            const names = await this._listDirectory(directory);
+            for (const name of names) {
+                if (!namePattern.test(name))
+                    continue;
+
+                const path = `${directory}/${name}/${relativePath}`;
+                try {
+                    return {path, content: await this.readFile(path)};
+                } catch (e) {
+                    // Continue looking for another GPU device.
+                }
+            }
+        }
+
         return null;
+    }
+
+    static async _listDirectory(path) {
+        return new Promise(resolve => {
+            const directory = Gio.File.new_for_path(path);
+            directory.enumerate_children_async(
+                'standard::name',
+                Gio.FileQueryInfoFlags.NONE,
+                GLib.PRIORITY_DEFAULT,
+                null,
+                (source, result) => {
+                    try {
+                        const enumerator = source.enumerate_children_finish(result);
+                        const names = [];
+                        let info;
+                        while ((info = enumerator.next_file(null)) !== null)
+                            names.push(info.get_name());
+                        enumerator.close(null);
+                        resolve(names);
+                    } catch (e) {
+                        resolve([]);
+                    }
+                }
+            );
+        });
     }
 }
