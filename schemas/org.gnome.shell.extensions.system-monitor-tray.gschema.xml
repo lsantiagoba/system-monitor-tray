@@ -36,6 +36,25 @@
       <summary>Round values</summary>
       <description>Round percentage values to whole numbers (e.g., 13% instead of 12.5%)</description>
     </key>
+
+    <key name="consistent-spacing" type="b">
+      <default>false</default>
+      <summary>Fixed-width monospace</summary>
+      <description>Use a monospace font and fixed-width number placement to prevent labels from shifting when values change</description>
+    </key>
+
+    <key name="fixed-width" type="i">
+      <range min="0" max="20"/>
+      <default>0</default>
+      <summary>Fixed number width</summary>
+      <description>Number of characters reserved for numeric values; zero selects the automatic width</description>
+    </key>
+
+    <key name="custom-separator" type="s">
+      <default>'  '</default>
+      <summary>Custom separator</summary>
+      <description>Text displayed between indicators</description>
+    </key>
     
     <key name="show-cpu" type="b">
       <default>true</default>

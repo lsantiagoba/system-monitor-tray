@@ -28,6 +28,8 @@ Available settings:
 - **Bold Labels**: Make metric labels appear in bold
 - **Bold Percentages**: Make percentage values appear in bold
 - **Round Values**: Round percentages to whole numbers (e.g., 13% vs 12.5%)
+- **Fixed-width Monospace**: Keep changing values aligned and choose their numeric width (0 uses the automatic width)
+- **Custom Separator**: Choose the text displayed between indicators
 
 ## Installation
 
