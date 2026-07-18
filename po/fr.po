@@ -1,0 +1,131 @@
+# fr translation for System Monitor Tray.
+msgid ""
+msgstr ""
+"Project-Id-Version: System Monitor Tray 2\n"
+"PO-Revision-Date: 2026-07-18 00:00-0400\n"
+"Last-Translator: System Monitor Tray contributors\n"
+"Language-Team: fr\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "System Monitor Tray"
+msgstr "Moniteur système dans la barre"
+
+msgid "Display real-time CPU, memory, swap, and load usage in the top panel"
+msgstr "Affiche en temps réel l’utilisation du processeur, de la mémoire, de l’espace d’échange et la charge dans la barre supérieure"
+
+msgid "CPU:"
+msgstr "Processeur :"
+
+msgid "Mem:"
+msgstr "Mémoire :"
+
+msgid "Swap:"
+msgstr "Échange :"
+
+msgid "Load:"
+msgstr "Charge :"
+
+msgid "GPU:"
+msgstr "GPU :"
+
+msgid "System Monitor"
+msgstr "Moniteur système"
+
+msgid "Appearance Settings"
+msgstr "Paramètres d’apparence"
+
+msgid "Configure how the system monitor appears"
+msgstr "Configurer l’apparence du moniteur système"
+
+msgid "Panel Position"
+msgstr "Position dans la barre"
+
+msgid "Position of the indicator in the top panel"
+msgstr "Position de l’indicateur dans la barre supérieure"
+
+msgid "Left"
+msgstr "Gauche"
+
+msgid "Center"
+msgstr "Centre"
+
+msgid "Right"
+msgstr "Droite"
+
+msgid "Show Icons"
+msgstr "Afficher les icônes"
+
+msgid "Display icons instead of text labels"
+msgstr "Afficher des icônes à la place des libellés"
+
+msgid "Bold Labels"
+msgstr "Libellés en gras"
+
+msgid "Display labels in bold text"
+msgstr "Afficher les libellés en gras"
+
+msgid "Bold Percentages"
+msgstr "Pourcentages en gras"
+
+msgid "Display percentage values in bold"
+msgstr "Afficher les pourcentages en gras"
+
+msgid "Round Values"
+msgstr "Arrondir les valeurs"
+
+msgid "Round percentages to whole numbers (e.g., 13% instead of 12.5%)"
+msgstr "Arrondir les pourcentages à des nombres entiers (p. ex. 13 % au lieu de 12,5 %)"
+
+msgid "Visibility Settings"
+msgstr "Paramètres de visibilité"
+
+msgid "Show or hide individual indicators"
+msgstr "Afficher ou masquer les indicateurs individuels"
+
+msgid "Show CPU"
+msgstr "Afficher le processeur"
+
+msgid "Display CPU usage indicator"
+msgstr "Afficher l’indicateur d’utilisation du processeur"
+
+msgid "Show Memory"
+msgstr "Afficher la mémoire"
+
+msgid "Display memory usage indicator"
+msgstr "Afficher l’indicateur d’utilisation de la mémoire"
+
+msgid "Show Swap"
+msgstr "Afficher l’échange"
+
+msgid "Display swap usage indicator"
+msgstr "Afficher l’indicateur d’utilisation de l’espace d’échange"
+
+msgid "Show Load"
+msgstr "Afficher la charge"
+
+msgid "Display system load indicator"
+msgstr "Afficher l’indicateur de charge du système"
+
+msgid "Show GPU"
+msgstr "Afficher le GPU"
+
+msgid "Display GPU usage indicator (NVIDIA, AMD, Intel)"
+msgstr "Afficher l’indicateur d’utilisation du GPU (NVIDIA, AMD, Intel)"
+
+msgid "Support"
+msgstr "Soutien"
+
+msgid "Help support future updates and development"
+msgstr "Soutenir les futures mises à jour et le développement"
+
+msgid "Support Future Updates"
+msgstr "Soutenir les futures mises à jour"
+
+msgid "Consider supporting this extension via PayPal"
+msgstr "Envisagez de soutenir cette extension via PayPal"
+
+msgid "Donate"
+msgstr "Faire un don"

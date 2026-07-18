@@ -1,0 +1,131 @@
+# zh translation for System Monitor Tray.
+msgid ""
+msgstr ""
+"Project-Id-Version: System Monitor Tray 2\n"
+"PO-Revision-Date: 2026-07-18 00:00-0400\n"
+"Last-Translator: System Monitor Tray contributors\n"
+"Language-Team: zh\n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "System Monitor Tray"
+msgstr "系统监视器托盘"
+
+msgid "Display real-time CPU, memory, swap, and load usage in the top panel"
+msgstr "在顶部面板中实时显示 CPU、内存、交换空间和系统负载使用情况"
+
+msgid "CPU:"
+msgstr "CPU："
+
+msgid "Mem:"
+msgstr "内存："
+
+msgid "Swap:"
+msgstr "交换空间："
+
+msgid "Load:"
+msgstr "负载："
+
+msgid "GPU:"
+msgstr "GPU："
+
+msgid "System Monitor"
+msgstr "系统监视器"
+
+msgid "Appearance Settings"
+msgstr "外观设置"
+
+msgid "Configure how the system monitor appears"
+msgstr "配置系统监视器的外观"
+
+msgid "Panel Position"
+msgstr "面板位置"
+
+msgid "Position of the indicator in the top panel"
+msgstr "指示器在顶部面板中的位置"
+
+msgid "Left"
+msgstr "左侧"
+
+msgid "Center"
+msgstr "居中"
+
+msgid "Right"
+msgstr "右侧"
+
+msgid "Show Icons"
+msgstr "显示图标"
+
+msgid "Display icons instead of text labels"
+msgstr "显示图标而不是文本标签"
+
+msgid "Bold Labels"
+msgstr "标签加粗"
+
+msgid "Display labels in bold text"
+msgstr "以粗体显示标签"
+
+msgid "Bold Percentages"
+msgstr "百分比加粗"
+
+msgid "Display percentage values in bold"
+msgstr "以粗体显示百分比值"
+
+msgid "Round Values"
+msgstr "数值取整"
+
+msgid "Round percentages to whole numbers (e.g., 13% instead of 12.5%)"
+msgstr "将百分比取整为整数（例如用 13% 代替 12.5%）"
+
+msgid "Visibility Settings"
+msgstr "可见性设置"
+
+msgid "Show or hide individual indicators"
+msgstr "显示或隐藏各个指示器"
+
+msgid "Show CPU"
+msgstr "显示 CPU"
+
+msgid "Display CPU usage indicator"
+msgstr "显示 CPU 使用率指示器"
+
+msgid "Show Memory"
+msgstr "显示内存"
+
+msgid "Display memory usage indicator"
+msgstr "显示内存使用率指示器"
+
+msgid "Show Swap"
+msgstr "显示交换空间"
+
+msgid "Display swap usage indicator"
+msgstr "显示交换空间使用率指示器"
+
+msgid "Show Load"
+msgstr "显示负载"
+
+msgid "Display system load indicator"
+msgstr "显示系统负载指示器"
+
+msgid "Show GPU"
+msgstr "显示 GPU"
+
+msgid "Display GPU usage indicator (NVIDIA, AMD, Intel)"
+msgstr "显示 GPU 使用率指示器（NVIDIA、AMD、Intel）"
+
+msgid "Support"
+msgstr "支持"
+
+msgid "Help support future updates and development"
+msgstr "帮助支持未来的更新和开发"
+
+msgid "Support Future Updates"
+msgstr "支持未来更新"
+
+msgid "Consider supporting this extension via PayPal"
+msgstr "请考虑通过 PayPal 支持此扩展"
+
+msgid "Donate"
+msgstr "捐赠"

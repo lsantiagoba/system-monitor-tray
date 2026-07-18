@@ -1,0 +1,131 @@
+# en translation for System Monitor Tray.
+msgid ""
+msgstr ""
+"Project-Id-Version: System Monitor Tray 2\n"
+"PO-Revision-Date: 2026-07-18 00:00-0400\n"
+"Last-Translator: System Monitor Tray contributors\n"
+"Language-Team: en\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "System Monitor Tray"
+msgstr "System Monitor Tray"
+
+msgid "Display real-time CPU, memory, swap, and load usage in the top panel"
+msgstr "Display real-time CPU, memory, swap, and load usage in the top panel"
+
+msgid "CPU:"
+msgstr "CPU:"
+
+msgid "Mem:"
+msgstr "Mem:"
+
+msgid "Swap:"
+msgstr "Swap:"
+
+msgid "Load:"
+msgstr "Load:"
+
+msgid "GPU:"
+msgstr "GPU:"
+
+msgid "System Monitor"
+msgstr "System Monitor"
+
+msgid "Appearance Settings"
+msgstr "Appearance Settings"
+
+msgid "Configure how the system monitor appears"
+msgstr "Configure how the system monitor appears"
+
+msgid "Panel Position"
+msgstr "Panel Position"
+
+msgid "Position of the indicator in the top panel"
+msgstr "Position of the indicator in the top panel"
+
+msgid "Left"
+msgstr "Left"
+
+msgid "Center"
+msgstr "Center"
+
+msgid "Right"
+msgstr "Right"
+
+msgid "Show Icons"
+msgstr "Show Icons"
+
+msgid "Display icons instead of text labels"
+msgstr "Display icons instead of text labels"
+
+msgid "Bold Labels"
+msgstr "Bold Labels"
+
+msgid "Display labels in bold text"
+msgstr "Display labels in bold text"
+
+msgid "Bold Percentages"
+msgstr "Bold Percentages"
+
+msgid "Display percentage values in bold"
+msgstr "Display percentage values in bold"
+
+msgid "Round Values"
+msgstr "Round Values"
+
+msgid "Round percentages to whole numbers (e.g., 13% instead of 12.5%)"
+msgstr "Round percentages to whole numbers (e.g., 13% instead of 12.5%)"
+
+msgid "Visibility Settings"
+msgstr "Visibility Settings"
+
+msgid "Show or hide individual indicators"
+msgstr "Show or hide individual indicators"
+
+msgid "Show CPU"
+msgstr "Show CPU"
+
+msgid "Display CPU usage indicator"
+msgstr "Display CPU usage indicator"
+
+msgid "Show Memory"
+msgstr "Show Memory"
+
+msgid "Display memory usage indicator"
+msgstr "Display memory usage indicator"
+
+msgid "Show Swap"
+msgstr "Show Swap"
+
+msgid "Display swap usage indicator"
+msgstr "Display swap usage indicator"
+
+msgid "Show Load"
+msgstr "Show Load"
+
+msgid "Display system load indicator"
+msgstr "Display system load indicator"
+
+msgid "Show GPU"
+msgstr "Show GPU"
+
+msgid "Display GPU usage indicator (NVIDIA, AMD, Intel)"
+msgstr "Display GPU usage indicator (NVIDIA, AMD, Intel)"
+
+msgid "Support"
+msgstr "Support"
+
+msgid "Help support future updates and development"
+msgstr "Help support future updates and development"
+
+msgid "Support Future Updates"
+msgstr "Support Future Updates"
+
+msgid "Consider supporting this extension via PayPal"
+msgstr "Consider supporting this extension via PayPal"
+
+msgid "Donate"
+msgstr "Donate"

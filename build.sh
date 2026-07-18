@@ -30,6 +30,9 @@ for file in "${FILES[@]}"; do
     fi
 done
 
+cp -r "${SRC_DIR}/icons" "./"
+echo "  ✓ icons/"
+
 echo ""
 echo "✅ Build complete! Files are ready for installation or packaging."
 echo ""

@@ -1,0 +1,131 @@
+# ru translation for System Monitor Tray.
+msgid ""
+msgstr ""
+"Project-Id-Version: System Monitor Tray 2\n"
+"PO-Revision-Date: 2026-07-18 00:00-0400\n"
+"Last-Translator: System Monitor Tray contributors\n"
+"Language-Team: ru\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "System Monitor Tray"
+msgstr "Системный монитор в панели"
+
+msgid "Display real-time CPU, memory, swap, and load usage in the top panel"
+msgstr "Показывает в реальном времени использование процессора, памяти, подкачки и нагрузку на верхней панели"
+
+msgid "CPU:"
+msgstr "ЦП:"
+
+msgid "Mem:"
+msgstr "Память:"
+
+msgid "Swap:"
+msgstr "Подкачка:"
+
+msgid "Load:"
+msgstr "Нагрузка:"
+
+msgid "GPU:"
+msgstr "ГП:"
+
+msgid "System Monitor"
+msgstr "Системный монитор"
+
+msgid "Appearance Settings"
+msgstr "Настройки внешнего вида"
+
+msgid "Configure how the system monitor appears"
+msgstr "Настройте внешний вид системного монитора"
+
+msgid "Panel Position"
+msgstr "Положение на панели"
+
+msgid "Position of the indicator in the top panel"
+msgstr "Положение индикатора на верхней панели"
+
+msgid "Left"
+msgstr "Слева"
+
+msgid "Center"
+msgstr "По центру"
+
+msgid "Right"
+msgstr "Справа"
+
+msgid "Show Icons"
+msgstr "Показывать значки"
+
+msgid "Display icons instead of text labels"
+msgstr "Показывать значки вместо текстовых меток"
+
+msgid "Bold Labels"
+msgstr "Жирные метки"
+
+msgid "Display labels in bold text"
+msgstr "Показывать метки жирным шрифтом"
+
+msgid "Bold Percentages"
+msgstr "Жирные проценты"
+
+msgid "Display percentage values in bold"
+msgstr "Показывать значения процентов жирным шрифтом"
+
+msgid "Round Values"
+msgstr "Округлять значения"
+
+msgid "Round percentages to whole numbers (e.g., 13% instead of 12.5%)"
+msgstr "Округлять проценты до целых чисел (например, 13% вместо 12,5%)"
+
+msgid "Visibility Settings"
+msgstr "Настройки видимости"
+
+msgid "Show or hide individual indicators"
+msgstr "Показать или скрыть отдельные индикаторы"
+
+msgid "Show CPU"
+msgstr "Показывать ЦП"
+
+msgid "Display CPU usage indicator"
+msgstr "Показывать индикатор использования ЦП"
+
+msgid "Show Memory"
+msgstr "Показывать память"
+
+msgid "Display memory usage indicator"
+msgstr "Показывать индикатор использования памяти"
+
+msgid "Show Swap"
+msgstr "Показывать подкачку"
+
+msgid "Display swap usage indicator"
+msgstr "Показывать индикатор использования подкачки"
+
+msgid "Show Load"
+msgstr "Показывать нагрузку"
+
+msgid "Display system load indicator"
+msgstr "Показывать индикатор нагрузки системы"
+
+msgid "Show GPU"
+msgstr "Показывать ГП"
+
+msgid "Display GPU usage indicator (NVIDIA, AMD, Intel)"
+msgstr "Показывать индикатор использования ГП (NVIDIA, AMD, Intel)"
+
+msgid "Support"
+msgstr "Поддержка"
+
+msgid "Help support future updates and development"
+msgstr "Поддержите будущие обновления и разработку"
+
+msgid "Support Future Updates"
+msgstr "Поддержать будущие обновления"
+
+msgid "Consider supporting this extension via PayPal"
+msgstr "Поддержите это расширение через PayPal"
+
+msgid "Donate"
+msgstr "Пожертвовать"

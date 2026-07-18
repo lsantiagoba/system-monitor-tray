@@ -13,6 +13,7 @@ GNOME Shell extension that displays real-time system resource usage in the top p
 - **Memory**: RAM usage percentage
 - **Swap**: Swap memory usage percentage
 - **Load**: System average load (1 minute) displayed as percentage and absolute value
+- **Translations**: English, Arabic, German, Spanish, French, Italian, Japanese, Korean, Portuguese, Russian, and Chinese
 
 ## Customization
 
@@ -99,6 +100,7 @@ The extension uses a modular architecture for better code organization:
 - **labelFormatter.js** - Handles text formatting based on user preferences
 - **systemMonitorIndicator.js** - Manages the panel UI and labels
 - **prefs.js** - Extension preferences dialog
+- **po/** - Gettext translation catalogs
 
 For detailed architecture documentation, see [ARCHITECTURE.md](ARCHITECTURE.md)
 

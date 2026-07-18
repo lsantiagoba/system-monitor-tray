@@ -1,0 +1,131 @@
+# ja translation for System Monitor Tray.
+msgid ""
+msgstr ""
+"Project-Id-Version: System Monitor Tray 2\n"
+"PO-Revision-Date: 2026-07-18 00:00-0400\n"
+"Last-Translator: System Monitor Tray contributors\n"
+"Language-Team: ja\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "System Monitor Tray"
+msgstr "システムモニタートレイ"
+
+msgid "Display real-time CPU, memory, swap, and load usage in the top panel"
+msgstr "トップパネルに CPU、メモリ、スワップ、負荷の使用状況をリアルタイムで表示します"
+
+msgid "CPU:"
+msgstr "CPU:"
+
+msgid "Mem:"
+msgstr "メモリ:"
+
+msgid "Swap:"
+msgstr "スワップ:"
+
+msgid "Load:"
+msgstr "負荷:"
+
+msgid "GPU:"
+msgstr "GPU:"
+
+msgid "System Monitor"
+msgstr "システムモニター"
+
+msgid "Appearance Settings"
+msgstr "外観設定"
+
+msgid "Configure how the system monitor appears"
+msgstr "システムモニターの表示方法を設定します"
+
+msgid "Panel Position"
+msgstr "パネルの位置"
+
+msgid "Position of the indicator in the top panel"
+msgstr "トップパネル内のインジケーターの位置"
+
+msgid "Left"
+msgstr "左"
+
+msgid "Center"
+msgstr "中央"
+
+msgid "Right"
+msgstr "右"
+
+msgid "Show Icons"
+msgstr "アイコンを表示"
+
+msgid "Display icons instead of text labels"
+msgstr "テキストラベルの代わりにアイコンを表示します"
+
+msgid "Bold Labels"
+msgstr "ラベルを太字にする"
+
+msgid "Display labels in bold text"
+msgstr "ラベルを太字で表示します"
+
+msgid "Bold Percentages"
+msgstr "パーセント値を太字にする"
+
+msgid "Display percentage values in bold"
+msgstr "パーセント値を太字で表示します"
+
+msgid "Round Values"
+msgstr "値を丸める"
+
+msgid "Round percentages to whole numbers (e.g., 13% instead of 12.5%)"
+msgstr "パーセント値を整数に丸めます（例: 12.5% ではなく 13%）"
+
+msgid "Visibility Settings"
+msgstr "表示設定"
+
+msgid "Show or hide individual indicators"
+msgstr "各インジケーターの表示と非表示を切り替えます"
+
+msgid "Show CPU"
+msgstr "CPU を表示"
+
+msgid "Display CPU usage indicator"
+msgstr "CPU 使用率インジケーターを表示します"
+
+msgid "Show Memory"
+msgstr "メモリを表示"
+
+msgid "Display memory usage indicator"
+msgstr "メモリ使用率インジケーターを表示します"
+
+msgid "Show Swap"
+msgstr "スワップを表示"
+
+msgid "Display swap usage indicator"
+msgstr "スワップ使用率インジケーターを表示します"
+
+msgid "Show Load"
+msgstr "負荷を表示"
+
+msgid "Display system load indicator"
+msgstr "システム負荷インジケーターを表示します"
+
+msgid "Show GPU"
+msgstr "GPU を表示"
+
+msgid "Display GPU usage indicator (NVIDIA, AMD, Intel)"
+msgstr "GPU 使用率インジケーターを表示します（NVIDIA、AMD、Intel）"
+
+msgid "Support"
+msgstr "サポート"
+
+msgid "Help support future updates and development"
+msgstr "今後の更新と開発を支援します"
+
+msgid "Support Future Updates"
+msgstr "今後の更新を支援"
+
+msgid "Consider supporting this extension via PayPal"
+msgstr "PayPal でこの拡張機能への支援をご検討ください"
+
+msgid "Donate"
+msgstr "寄付"

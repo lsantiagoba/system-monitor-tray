@@ -1,0 +1,131 @@
+# ko translation for System Monitor Tray.
+msgid ""
+msgstr ""
+"Project-Id-Version: System Monitor Tray 2\n"
+"PO-Revision-Date: 2026-07-18 00:00-0400\n"
+"Last-Translator: System Monitor Tray contributors\n"
+"Language-Team: ko\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "System Monitor Tray"
+msgstr "시스템 모니터 트레이"
+
+msgid "Display real-time CPU, memory, swap, and load usage in the top panel"
+msgstr "상단 패널에 CPU, 메모리, 스왑 및 부하 사용량을 실시간으로 표시합니다"
+
+msgid "CPU:"
+msgstr "CPU:"
+
+msgid "Mem:"
+msgstr "메모리:"
+
+msgid "Swap:"
+msgstr "스왑:"
+
+msgid "Load:"
+msgstr "부하:"
+
+msgid "GPU:"
+msgstr "GPU:"
+
+msgid "System Monitor"
+msgstr "시스템 모니터"
+
+msgid "Appearance Settings"
+msgstr "모양 설정"
+
+msgid "Configure how the system monitor appears"
+msgstr "시스템 모니터가 표시되는 방식을 설정합니다"
+
+msgid "Panel Position"
+msgstr "패널 위치"
+
+msgid "Position of the indicator in the top panel"
+msgstr "상단 패널에서 표시기의 위치"
+
+msgid "Left"
+msgstr "왼쪽"
+
+msgid "Center"
+msgstr "가운데"
+
+msgid "Right"
+msgstr "오른쪽"
+
+msgid "Show Icons"
+msgstr "아이콘 표시"
+
+msgid "Display icons instead of text labels"
+msgstr "텍스트 레이블 대신 아이콘을 표시합니다"
+
+msgid "Bold Labels"
+msgstr "굵은 레이블"
+
+msgid "Display labels in bold text"
+msgstr "레이블을 굵은 글씨로 표시합니다"
+
+msgid "Bold Percentages"
+msgstr "굵은 백분율"
+
+msgid "Display percentage values in bold"
+msgstr "백분율 값을 굵게 표시합니다"
+
+msgid "Round Values"
+msgstr "값 반올림"
+
+msgid "Round percentages to whole numbers (e.g., 13% instead of 12.5%)"
+msgstr "백분율을 정수로 반올림합니다(예: 12.5% 대신 13%)"
+
+msgid "Visibility Settings"
+msgstr "표시 설정"
+
+msgid "Show or hide individual indicators"
+msgstr "각 표시기를 표시하거나 숨깁니다"
+
+msgid "Show CPU"
+msgstr "CPU 표시"
+
+msgid "Display CPU usage indicator"
+msgstr "CPU 사용량 표시기를 표시합니다"
+
+msgid "Show Memory"
+msgstr "메모리 표시"
+
+msgid "Display memory usage indicator"
+msgstr "메모리 사용량 표시기를 표시합니다"
+
+msgid "Show Swap"
+msgstr "스왑 표시"
+
+msgid "Display swap usage indicator"
+msgstr "스왑 사용량 표시기를 표시합니다"
+
+msgid "Show Load"
+msgstr "부하 표시"
+
+msgid "Display system load indicator"
+msgstr "시스템 부하 표시기를 표시합니다"
+
+msgid "Show GPU"
+msgstr "GPU 표시"
+
+msgid "Display GPU usage indicator (NVIDIA, AMD, Intel)"
+msgstr "GPU 사용량 표시기를 표시합니다(NVIDIA, AMD, Intel)"
+
+msgid "Support"
+msgstr "후원"
+
+msgid "Help support future updates and development"
+msgstr "향후 업데이트와 개발을 후원합니다"
+
+msgid "Support Future Updates"
+msgstr "향후 업데이트 후원"
+
+msgid "Consider supporting this extension via PayPal"
+msgstr "PayPal을 통해 이 확장 기능을 후원해 주세요"
+
+msgid "Donate"
+msgstr "기부"

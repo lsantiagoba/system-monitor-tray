@@ -1,0 +1,131 @@
+# ar translation for System Monitor Tray.
+msgid ""
+msgstr ""
+"Project-Id-Version: System Monitor Tray 2\n"
+"PO-Revision-Date: 2026-07-18 00:00-0400\n"
+"Last-Translator: System Monitor Tray contributors\n"
+"Language-Team: ar\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "System Monitor Tray"
+msgstr "مراقب النظام في اللوحة"
+
+msgid "Display real-time CPU, memory, swap, and load usage in the top panel"
+msgstr "عرض استخدام المعالج والذاكرة وذاكرة التبديل والحِمل لحظيًا في اللوحة العلوية"
+
+msgid "CPU:"
+msgstr "المعالج:"
+
+msgid "Mem:"
+msgstr "الذاكرة:"
+
+msgid "Swap:"
+msgstr "التبديل:"
+
+msgid "Load:"
+msgstr "الحِمل:"
+
+msgid "GPU:"
+msgstr "معالج الرسوميات:"
+
+msgid "System Monitor"
+msgstr "مراقب النظام"
+
+msgid "Appearance Settings"
+msgstr "إعدادات المظهر"
+
+msgid "Configure how the system monitor appears"
+msgstr "اضبط كيفية ظهور مراقب النظام"
+
+msgid "Panel Position"
+msgstr "موضع اللوحة"
+
+msgid "Position of the indicator in the top panel"
+msgstr "موضع المؤشر في اللوحة العلوية"
+
+msgid "Left"
+msgstr "يسار"
+
+msgid "Center"
+msgstr "وسط"
+
+msgid "Right"
+msgstr "يمين"
+
+msgid "Show Icons"
+msgstr "إظهار الأيقونات"
+
+msgid "Display icons instead of text labels"
+msgstr "عرض الأيقونات بدلًا من التسميات النصية"
+
+msgid "Bold Labels"
+msgstr "تسميات عريضة"
+
+msgid "Display labels in bold text"
+msgstr "عرض التسميات بخط عريض"
+
+msgid "Bold Percentages"
+msgstr "نِسب عريضة"
+
+msgid "Display percentage values in bold"
+msgstr "عرض قيم النسب المئوية بخط عريض"
+
+msgid "Round Values"
+msgstr "تقريب القيم"
+
+msgid "Round percentages to whole numbers (e.g., 13% instead of 12.5%)"
+msgstr "تقريب النسب المئوية إلى أعداد صحيحة (مثلًا 13% بدلًا من 12.5%)"
+
+msgid "Visibility Settings"
+msgstr "إعدادات الظهور"
+
+msgid "Show or hide individual indicators"
+msgstr "إظهار المؤشرات الفردية أو إخفاؤها"
+
+msgid "Show CPU"
+msgstr "إظهار المعالج"
+
+msgid "Display CPU usage indicator"
+msgstr "عرض مؤشر استخدام المعالج"
+
+msgid "Show Memory"
+msgstr "إظهار الذاكرة"
+
+msgid "Display memory usage indicator"
+msgstr "عرض مؤشر استخدام الذاكرة"
+
+msgid "Show Swap"
+msgstr "إظهار ذاكرة التبديل"
+
+msgid "Display swap usage indicator"
+msgstr "عرض مؤشر استخدام ذاكرة التبديل"
+
+msgid "Show Load"
+msgstr "إظهار الحِمل"
+
+msgid "Display system load indicator"
+msgstr "عرض مؤشر حِمل النظام"
+
+msgid "Show GPU"
+msgstr "إظهار معالج الرسوميات"
+
+msgid "Display GPU usage indicator (NVIDIA, AMD, Intel)"
+msgstr "عرض مؤشر استخدام معالج الرسوميات (NVIDIA وAMD وIntel)"
+
+msgid "Support"
+msgstr "الدعم"
+
+msgid "Help support future updates and development"
+msgstr "ساعد في دعم التحديثات والتطوير مستقبلًا"
+
+msgid "Support Future Updates"
+msgstr "دعم التحديثات المستقبلية"
+
+msgid "Consider supporting this extension via PayPal"
+msgstr "فكّر في دعم هذه الإضافة عبر PayPal"
+
+msgid "Donate"
+msgstr "تبرّع"

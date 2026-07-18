@@ -36,17 +36,26 @@ cp labelFormatter.js "$EXTENSION_DIR/"
 cp systemMonitorIndicator.js "$EXTENSION_DIR/"
 cp prefs.js "$EXTENSION_DIR/"
 cp stylesheet.css "$EXTENSION_DIR/"
+cp -r icons "$EXTENSION_DIR/"
+
+# Compile and install gettext translations
+echo -e "\t4. Compiling translations..."
+for locale in $(< ../../po/LINGUAS); do
+    mkdir -p "$EXTENSION_DIR/locale/$locale/LC_MESSAGES"
+    msgfmt "../../po/$locale.po" \
+        -o "$EXTENSION_DIR/locale/$locale/LC_MESSAGES/$EXTENSION_UUID.mo"
+done
 
 # Copiar schemas
-echo -e "\t4. Copying schema files..."
+echo -e "\t5. Copying schema files..."
 mkdir -p "$EXTENSION_DIR/schemas"
 cp ../../schemas/*.xml "$EXTENSION_DIR/schemas/"
 
 # Compilar schemas
-echo -e "\t5. Compiling schemas..."
+echo -e "\t6. Compiling schemas..."
 glib-compile-schemas "$EXTENSION_DIR/schemas/"
 
-echo -e "\t6. Enabling extension..."
+echo -e "\t7. Enabling extension..."
 if command -v gnome-extensions &> /dev/null; then
     gnome-extensions enable $EXTENSION_UUID || echo -e "\t   (Extension will be enabled after restart)"
 else

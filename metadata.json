@@ -2,6 +2,7 @@
   "name": "System Monitor Tray",
   "description": "Display real-time CPU, memory, swap, and load usage in the top panel",
   "uuid": "system-monitor-tray@lsb.codes",
+  "gettext-domain": "system-monitor-tray@lsb.codes",
   "shell-version": [
     "45",
     "46",

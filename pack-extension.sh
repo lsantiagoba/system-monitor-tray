@@ -45,14 +45,26 @@ for file in "${FILES[@]}"; do
     fi
 done
 
+cp -r "$SOURCE_DIR/icons" "$PACK_DIR/icons"
+echo -e "\t   ✓ icons/"
+
 # Copy schema files
 echo -e "\t4. Copying schema files..."
 mkdir -p "$PACK_DIR/schemas"
 cp schemas/*.xml "$PACK_DIR/schemas/"
 echo -e "\t   ✓ schemas/org.gnome.shell.extensions.system-monitor-tray.gschema.xml"
 
+# Compile gettext catalogs into the layout expected by GNOME Shell
+echo -e "\t5. Compiling translations..."
+for locale in $(< po/LINGUAS); do
+    mkdir -p "$PACK_DIR/locale/$locale/LC_MESSAGES"
+    msgfmt "po/$locale.po" \
+        -o "$PACK_DIR/locale/$locale/LC_MESSAGES/$EXTENSION_UUID.mo"
+done
+echo -e "\t   ✓ $(tr ' ' '\n' < po/LINGUAS | wc -l) locales"
+
 # Create the .zip file
-echo -e "\t5. Creating ${OUTPUT_FILE}..."
+echo -e "\t6. Creating ${OUTPUT_FILE}..."
 cd "$PACK_DIR"
 zip -r "../${OUTPUT_FILE}" . > /dev/null 2>&1
 cd ..
@@ -68,7 +80,7 @@ else
 fi
 
 # Clean up
-echo -e "\t6. Cleaning up temporary files..."
+echo -e "\t7. Cleaning up temporary files..."
 rm -rf "$PACK_DIR"
 
 echo -e "\n\t--------------------------------------------------"
